@@ -144,7 +144,7 @@ def get_response_from_model(prompt):
         return "抱歉，我无法生成回答。"
 
 def synthesize_speech(text):
-    url_generate = "http://127.0.0.1:5000/generate_audio"
+    url_generate = "http://127.0.0.1:5001/generate_audio"
     out_directory = "out"
     os.makedirs(out_directory, exist_ok=True)
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -214,9 +214,9 @@ def play_audio_and_delete(file_path):
 def check_for_commands(text):
     prompt = f"这是用户的输入：“{text}”。请判断这是否是一个命令，并返回命令类型（例如：“连接大模型”或“停止”），如果不是，请回答“无”。"
     response = get_response_from_model(prompt)
-    if "大模型启动" in response:
+    if "启动" in response:
         return "连接大模型"
-    elif "停止" in response:
+    elif "停止" or "退出" in response:
         return "停止"
     else:
         return "无"
