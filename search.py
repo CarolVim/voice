@@ -8,12 +8,12 @@ import logging
 import os
 from datetime import datetime
 from googleapiclient.discovery import build
-from llama_index.schema import Document
+from llama_index import Document
 from llama_index.indices import SimpleIndex
 from llama_index.llms import OpenAI
 from llama_index.embeddings import OpenAIEmbedding
-from llama_index.storage import StorageContext
-from llama_index.service_context import ServiceContext
+from llama_index import StorageContext
+from llama_index import ServiceContext
 
 
 
@@ -29,8 +29,8 @@ WAVE_OUTPUT_FILENAME = "output.wav"
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Google Search API 配置
-API_KEY = 'AIzaSyBfnMACDWwnCDLXSFBgat92lzQ2BEMfmDM'
-CSE_ID = '543a0e7376ee4414b'
+API_KEY = ''
+CSE_ID = ''
 
 # 解析命令行参数
 parser = argparse.ArgumentParser()
